@@ -1,0 +1,21 @@
+#, Opal Kelly Interface Register Bank Config File,,,,,,,,,,
+#, Please note this config file cannot have blank lines.,,,,,,,,,,
+#,,,,,,,,,,,
+#,Project:,,,,Read Me:,,,,,,
+#, Author:,,,,Lines that do not contribute to the register bank config have a '#' in column A.,,,,,,
+#, Date:,,,,Save this file as a CSV 'filename.csv',,,,,,
+#,Version:,,,,,,,,,,
+#, ,,,,,,,,,,
+#,,,,,,,,,,,
+#, Direction       ,Type ,Address,Name,Size,Class,LimitMin,LimitMax,Destination,Starting Bit,Ref Source
+#, (FromPC / ToPC) ,(Wire/Trigger/Pipe),(8b Hex),(Must be unique and cannot be same as DESTINATION column),(Max 32),(DAC/FSM/ADC/CUSTOM),,,(PARENT),,"(Clock For Trigger)"
+#, Opal Kelly PCB I/O,,,,,,,,,,
+,FromPC,Wire,00,Wire_to_OK,8,OK,NA,NA,PARENT,0,
+#,,,,,,,,,,,
+,ToPC,Wire,21,Wire_from_OK,12,CUSTOM,0,0,PARENT,0,
+,FromPC,Trigger,40,Trigger_to_OK,1,CUSTOM,0,2,ProgResetDAC,0,clk_1M
+,ToPC,Trigger,60,Trigger_from_OK,1,CUSTOM,0,1,PARENT,0,SYS_CLK2
+,FromPC,BTPipe,A2,BTpipe_to_OK,16,CUSTOM,0,65535,PARENT,0,
+#,,,,,,,,,,,
+#, Do NOT leave blank lines at the end of this configuration script,,,,,,,,,,
+#,,,,,,,,,,,
